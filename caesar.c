@@ -6,19 +6,22 @@
 
 int main(int argc, string argv[]) {
     
-    //run command = argv[0], and the user input (of the key) is argv[1]
+    //the run command is stored in argv[0], and the user input (of the cipher key) is stored in argv[1]
     if (argc == 2) {
         
         int i;
         int digit_number = 0;
         
+        //iterate over each character in the string held in argv[1]
         for (i = 0; i < strlen(argv[1]); i++)
         {
-            //iterate over each character in the string held in argv[1] to make sure it's a digit and if so then print string as int
+            //make sure the [i]th character is a digit and if so then print string as int instead
             if (isdigit(argv[1][i]))
             {
+                //counts the number of digits in argv[1]
                 digit_number +=1;
             }
+            //if the number of digits counted = the number of characters in argv[1] then the Boolean = true
             if (digit_number == strlen(argv[1]))
             {
                 printf("Success\n");
@@ -28,6 +31,7 @@ int main(int argc, string argv[]) {
             
         }
     }
+    //if [i]th character contains a non-digit then the Boolean = false so the for loop terminates and below error message appears
     else {
         printf("Usage: ./caesar key");
         return 1;
