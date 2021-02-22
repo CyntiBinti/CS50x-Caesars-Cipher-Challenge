@@ -7,6 +7,7 @@
 int main(int argc, string argv[]) {
     
     int i;
+    string ciphertext;
 
     //the run command is stored in argv[0], and the user input (of the cipher key) is stored in argv[1]
     if (argc == 2) {
@@ -21,8 +22,23 @@ int main(int argc, string argv[]) {
                 return 1;
             }
         }
-            printf("Success\n");
             printf("%i\n", atoi(argv[1]));
-            return 0;   
+            string plaintext = get_string("plaintext: ");
+            
+            string ciphertext {
+                for (i = 0; i < strlen(plaintext); i++)
+                {
+                    if (isupper(plaintext[i]))
+                    {
+                        printf("ciphertext: %s\n", (plaintext[i] + 1));
+                    }
+                    else if (islower(plaintext[i]))
+                    {
+                        printf("ciphertext: %s\n", (plaintext[i] + 1));
+                    }
+                }
+            }   return ciphertext;
+                return 0;
+
     }
 }
