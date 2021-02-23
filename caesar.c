@@ -8,7 +8,7 @@ int main(int argc, string argv[]) {
     
     int i;
     int c = 0;
-    int c_shift = ((c + atoi(argv[1])) % 26);
+    int c_shift = 0;
 
     //the run command is stored in argv[0], and the user input (of the cipher key) is stored in argv[1]
     if (argc == 2) {
