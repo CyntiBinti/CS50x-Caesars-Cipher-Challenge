@@ -7,8 +7,7 @@
 int main(int argc, string argv[]) {
     
     int i;
-    int c = 0;
-    int c_shift = 0;
+    int j;
 
     //the run command is stored in argv[0], and the user input (of the cipher key) is stored in argv[1]
     if (argc == 2) {
@@ -25,24 +24,24 @@ int main(int argc, string argv[]) {
         }
             printf("%i\n", atoi(argv[1]));
             string plaintext = get_string("plaintext: ");
+            printf("ciphertext: ");
             
             //loop through each character to first make it an int, then add the key, then change back into a char to print out the shifted cipher
-            for (i = 0; i < strlen(plaintext); i++)
+            for (j = 0; j < strlen(plaintext); j++)
             {
-                if (isalpha(plaintext[i]))
+                if (isalpha(plaintext[j]) && islower(plaintext[j]))
                 {
-                    if (islower(plaintext[i]))
-                    {
-                        c = plaintext[i] - 'A';
-                    }
-                    else if (isupper(plaintext[i]))
-                    {
-                        c = plaintext[i] - 'a';
-                    }
-                    c_shift = ((c + atoi(argv[1])) % 26);
+                    printf("%c\n", ((((plaintext[j] - 'a') + atoi(argv[1])) % 26) + 'a'));
                 }
-            }   printf("ciphertext: %c\n", c_shift);
-                return 0;
+                else if (isalpha(plaintext[j]) && isupper(plaintext[j]))
+                {
+                    printf("%c\n", ((((plaintext[j] - 'A') + atoi(argv[1])) % 26) + 'A'));
+                }
+                else
+                {
+                    printf("%c\n", (plaintext[j]));
+                }
+        }   return 0;
     }
 
 }
