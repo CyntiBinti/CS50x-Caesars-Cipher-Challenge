@@ -31,17 +31,18 @@ int main(int argc, string argv[]) {
             {
                 if (isalpha(plaintext[j]) && islower(plaintext[j]))
                 {
-                    printf("%c\n", ((((plaintext[j] - 'a') + atoi(argv[1])) % 26) + 'a'));
+                    printf("%c", ((((plaintext[j] - 'a') + atoi(argv[1])) % 26) + 'a'));
                 }
                 else if (isalpha(plaintext[j]) && isupper(plaintext[j]))
                 {
-                    printf("%c\n", ((((plaintext[j] - 'A') + atoi(argv[1])) % 26) + 'A'));
+                    printf("%c", ((((plaintext[j] - 'A') + atoi(argv[1])) % 26) + 'A'));
                 }
                 else
                 {
-                    printf("%c\n", (plaintext[j]));
+                    printf("%c", (plaintext[j]));
                 }
-        }   return 0;
+        }   printf("\n");
+            return 0;
     }
 
 }
